@@ -15,10 +15,10 @@ Take screenshots of output files:
 
 ## 2. Ran trimmomatic
 ```bash
-java -jar ~/Assembly/trimmomatic.0.38.jar PE -threads 16 -phred33 -trimlog file.txt A26_
+java -jar ~/Assembly/trimmomatic.0.38.jar PE -threads 16 -phred33 -trimlog file.txt A26_1.fastq A26_2.fastq A26_1_paired.fastq A26_1_unpaired.fastq A26_2_paired.fastq A26_2_unpaired.fastq 
 ```
 
-## 3. Count number fo forward reads remaining
+## 3. Count the number of forward reads remaining
 ```bash
-grep -c "^@" A26_
+grep -c "^@" A26_1_paired.fastq
 ```
