@@ -8,10 +8,10 @@ ssh -Y pwth228@pwth228.cs.uky.edu
 cd MyGenome
 fastqc &
 ```
-Load F1 and R1 datasets into GUI interface.
-Take screenshots of output files:
-
+Forward Sequence
 ![ForwardFastQC.png](/data/ForwardFastQC.png)
+Reverse Sequence
+![ReverseFastQc.png](/data/ReverseFastQC.png)
 
 ## 2. Ran trimmomatic
 ```bash
