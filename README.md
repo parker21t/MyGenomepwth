@@ -22,3 +22,13 @@ java -jar ~/Assembly/trimmomatic.0.38.jar PE -threads 16 -phred33 -trimlog file.
 ```bash
 grep -c "^@" A26_1_paired.fastq
 ```
+
+## 4. Assembling the genome using velvetoptimiser
+Step size of 10
+```bash
+sbatch velvetoptimiser_noclean.sh A26 61 131 10
+```
+Step size of 2
+```bash
+sbatch velvetoptimiser_noclean.sh A26 71 111 2
+```
