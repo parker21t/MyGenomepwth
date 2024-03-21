@@ -32,3 +32,7 @@ Step size of 2
 ```bash
 sbatch velvetoptimiser_noclean.sh A26 71 111 2
 ```
+
+## 5. Checking genome completeness using BUSCO
+```bash
+sbatch /project/farman_s24cs485g/pwth228/BuscoSingularity.sh T29
