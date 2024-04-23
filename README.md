@@ -36,3 +36,35 @@ sbatch velvetoptimiser_noclean.sh A26 71 111 2
 ## 5. Checking genome completeness using BUSCO
 ```bash
 sbatch /project/farman_s24cs485g/pwth228/BuscoSingularity.sh T29
+```
+
+## 6. Using blastn to predict mitochondrial markers
+```bash
+blastn -query MoMitochondrion.fasta -subject T29_final.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid slen length qstart qend sstart send btop' -out MoMitochondrion.T29.BLAST
+
+awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' MoMitochondrion.T29.BLAST > T29_mitochondrion.csv
+```
+```bash
+blastn -query B71v2sh_masked.fasta -subject T29_Final.fasta -evalue 1e-50 -max_target_seqs 20000 -outfmt '6 qseqid sseqid qstart qend sstart send btop' -out B71v2sh.T29.BLAST
+
+awk '$4/$3 > 0.9 {print $2 ",mitochondrion"}' B71v2sh.T29.BLAST > T29_B71.csv
+```
+
+## 7. Gene Prediction using SNAP, Augustus, and MAKER
+SNAP
+```bash
+fathom genome.ann genome.dna -gene-stats
+fathom genome.ann genome.dna -categorize 1000
+fathom uni.ann uni.dna -gene-stats
+fathom uni.ann uni.dna -export 1000 -plus
+forge export.ann export.dna
+hmm-assembler.pl Moryzae . > Moryzae.hmm
+snap-hmm Moryzae.hmm T29_final.fasta T29-snap.zff
+```
+Augustus
+```bash
+```
+MAKER
+```bash
+```
+
