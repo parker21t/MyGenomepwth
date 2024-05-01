@@ -14,6 +14,7 @@ Reverse Sequence
 ![ReverseFastQc.png](/data/ReverseFastQC.png)
 
 ## 2. Ran trimmomatic
+The forward and reverse sequences of the A26 genome were trimmed using paired-end trimming to eliminate any poor-quality sequences. 
 ```bash
 java -jar ~/Assembly/trimmomatic.0.38.jar PE -threads 16 -phred33 -trimlog file.txt A26_1.fastq A26_2.fastq A26_1_paired.fastq A26_1_unpaired.fastq A26_2_paired.fastq A26_2_unpaired.fastq 
 ```
@@ -24,6 +25,7 @@ grep -c "^@" A26_1_paired.fastq
 ```
 
 ## 4. Assembling the genome using velvetoptimiser
+Velvetoptimiser was used to assemble the genome.
 Step size of 10
 ```bash
 sbatch velvetoptimiser_noclean.sh A26 61 131 10
